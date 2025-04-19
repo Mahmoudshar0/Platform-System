@@ -1,7 +1,5 @@
-import React from "react";
+import React, { Children } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
 import PostSection from "./components/PostSection";
 import Test from "./components/Test";
 import AddTest from "./components/AddTest";
@@ -15,39 +13,38 @@ import AddContentDialog from "./components/AddContentDialog";
 import Messages from "./components/Messages";
 import PostCard from "./components/PostCard";
 import ContentManagement from "./components/ContentManagement";
-// import NotificationDropdown from "./components/NotificationDropdown";
-// import TaskTable from "./components/TaskTable";
-// import live from "./components/live";
+import LoginPage from "./components/Authentication/LoginPage"
+import MainLayout from "./Layouts/MainLayout";
+import AuthLayout from "./Layouts/AuthLayout";
+import PasswordRecoveryPage from "./components/Authentication/PasswordRecoveryPage";
+import VerificationCodePage from "./components/Authentication/VerificationCodePage";
+import ResetPasswordPage from "./components/Authentication/ResetPasswordPage";
 
 const App = () => {
   return (
     <Router>
-        <Sidebar />
-          <Header />
-          {/* <NotificationDropdown /> */}
+      <Routes>
 
-          
-          
-          <Routes>
-  <Route path="/" element={<h1>الصفحة الرئيسية</h1>} />
-  <Route path="/test" element={<Test />} />
-  <Route path="/test/completedtest" element={<CompletedTest />} />
-  <Route path="/test/uploadedtest" element={<UploadedTest />} />
-  <Route path="/post" element={<LinkPosts />} />
-  <Route path="/Posts" element={<LinkPosts />} />
-  <Route path="/messages" element={<Messages />} />
-  <Route path="/PostSection" element={<PostSection />} />
-  <Route path="/add-test" element={<AddTest />} />
-  <Route path="/add-test-page" element={<AddTestPage />} />
-  <Route path="/temp" element={<TempComponent />} />
-  <Route path="/content" element={<ContentManagement />} />
-  {/* <Route path="/Notification" element={<Notificatio />} /> */}
-  {/* <Route path="/content/tasks" element={<TaskTable />} /> */}
-</Routes>
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/password-recovery" element={<PasswordRecoveryPage />} />
+          <Route path="/password-verify" element={<VerificationCodePage />} />
+          <Route path="/password-Reset" element={<ResetPasswordPage />} />
+        </Route>
 
-        
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<h1>الصفحة الرئيسية</h1>} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/test/completedtest" element={<CompletedTest />} />
+          <Route path="/test/uploadedtest" element={<UploadedTest />} />
+          <Route path="/post" element={<LinkPosts />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/add-test" element={<AddTest />} />
+          <Route path="/content" element={<ContentManagement />} />
+        </Route>
+
+      </Routes>
     </Router>
   );
 };
-
 export default App;
