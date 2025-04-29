@@ -1,0 +1,124 @@
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  /* padding-bottom: 1rem; */
+}
+
+.filter-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-button {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.filter-button:hover {
+  background-color: #f9fafb;
+}
+
+.filter-button.active {
+  border-color: #d1d5db;
+  color: #111827;
+}
+
+.arrow {
+  border: solid #374151;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-right: 5px;
+  transition: transform 0.2s ease;
+}
+
+.arrow.down {
+  transform: rotate(45deg);
+}
+
+.arrow.up {
+  transform: rotate(-135deg);
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-option {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.filter-option:hover {
+  background-color: #f9fafb;
+}
+
+.filter-option.active {
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+  color: #111827;
+  font-weight: 600;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .filter-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-top: 0.25rem;
+    z-index: 10;
+    padding: 0.5rem;
+  }
+  
+  .filter-options.expanded {
+    display: flex;
+  }
+  
+  .filter-option {
+    width: 100%;
+    text-align: right;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-button {
+    display: none;
+  }
+  
+  .filter-options {
+    display: flex !important;
+  }
+}

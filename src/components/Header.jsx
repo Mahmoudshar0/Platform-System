@@ -92,7 +92,7 @@ function Header() {
           display: "flex",
           alignItems: "center",
           justifyContent: "flex-end",
-          padding: "10px 30px",
+          padding: "10px 30px 0",
           width: "80%",
           gap: "15px",
         }}

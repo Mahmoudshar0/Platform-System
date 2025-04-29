@@ -16,9 +16,9 @@ import PeopleIcon from "@mui/icons-material/People";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FolderIcon from "@mui/icons-material/Folder";
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
-// import live from '../assets/live.png';
+import live from '../assets/live.png';
 //--------------------------------------------------------
-const drawerWidth = 250;
+const drawerWidth = 220;
 
 const menuItems = [
   { text: "الصفحة الرئيسية", icon: <HomeRoundedIcon />, path: "/" },
@@ -26,8 +26,7 @@ const menuItems = [
   { text: "إدارة الواجبات", icon: <AssignmentIcon />, path: "/assignments" },
   { text: "إدارة الاختبارات", icon: <QuizIcon />, path: "/test" },
   { text: "التفاعل مع الطلاب", icon: <PeopleIcon />, path: "/posts" }, 
-  { text: "بث مباشر", icon: <img src='../assets/live.png' alt="بث مباشر" style={{ width: 24, height: 24 }} /> , path: "/live" },
-  // { text: "بث مباشر", icon: <LiveTvIcon />, path: "/live" },
+  { text: "بث مباشر", icon: <img src={live} alt="بث مباشر" style={{ width: 24, height: 24 }} /> , path: "/live" },
   { text: "الإعدادات", icon: <SettingsIcon />, path: "/settings" },
 ];
 
@@ -61,13 +60,12 @@ const Sidebar = () => {
         </IconButton>
       )}
 
-      {/* السايد بار */}
       <Drawer
         sx={{
           width: isMobile ? 0 : drawerWidth,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
-            width: isMobile ? "75%" : drawerWidth,
+            width: isMobile ? "60%" : drawerWidth,
             backgroundColor: "#4A5971",
             color: "white",
             height: "100vh",
@@ -83,15 +81,19 @@ const Sidebar = () => {
         open={mobileOpen}
         onClose={handleDrawerToggle}
       >
-        <List sx={{ padding: 0, marginTop: 5 }}>
+        <List sx={{ marginTop: 5 }}>
           {menuItems.map((item) => (
-            <ListItem key={item.text} disablePadding>
+            <ListItem key={item.text} disablePadding
+            sx={{ paddingInline: 2 }}>
               <ListItemButton
                 sx={{
                   display: "flex",
-                  justifyContent: "flex-end",
-                  gap: 1,
-                  paddingY: 1,
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: 0,
+                  paddingInline: 1,
+                  marginBlock: 1,
+                  borderRadius: 2,
                   transition: "background-color 0.3s ease",
                   "&:hover": { backgroundColor: "#5864D3" },
                 }}
@@ -100,8 +102,8 @@ const Sidebar = () => {
                   if (isMobile) setMobileOpen(false);
                 }}
               >
-                <ListItemText primary={item.text} sx={{ textAlign: "right", color: "white", paddingRight: 2 }} />
-                <ListItemIcon sx={{ color: "white" }}>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} sx={{ textAlign: "right", color: "white", paddingRight: 0 }} />
+                <ListItemIcon sx={{ color: "white", minWidth:"30px", marginLeft:1 }}>{item.icon}</ListItemIcon>
               </ListItemButton>
             </ListItem>
           ))}
