@@ -1,0 +1,50 @@
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.status-completed {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #065f46;
+}
+
+.status-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #b91c1c;
+}
+
+.status-processing {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #92400e;
+}
+
+.status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  font-size: 0.625rem;
+}
+
+.status-completed .status-icon {
+  background-color: #10b981;
+  color: white;
+}
+
+.status-error .status-icon {
+  background-color: #ef4444;
+  color: white;
+}
+
+.status-processing .status-icon {
+  background-color: #f59e0b;
+  color: white;
+}
