@@ -15,6 +15,7 @@ import LinkPosts from "./components/LinkPosts";
 import Messages from "./components/Messages";
 import ContentManagement from "./components/ContentManagement";
 import Dashboard from "./components/Home/Dashboard";
+import Assignments from "./components/Assignments/Assignments";
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/messages" element={<Messages />} />
           <Route path="/add-test" element={<AddTest />} />
           <Route path="/content" element={<ContentManagement />} />
+          <Route path="/assignments" element={<Assignments />} />
         </Route>
 
       </Routes>
