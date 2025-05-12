@@ -143,14 +143,3 @@ function TempComponent() {
 }
 
 export default TempComponent;
-
-
-
-
-
-
-
-
-
-
-

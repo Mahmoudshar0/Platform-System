@@ -8,8 +8,9 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AddContentDialog from "./AddContentDialog";
+import PostSection from "./PostSection";
 
 function LinkPosts() {
   const [openAddDialog, setOpenAddDialog] = useState(false);
@@ -52,15 +53,31 @@ function LinkPosts() {
       <Typography variant="body2" color="text.secondary">
         {type === "post" ? item.content : item.description}
       </Typography>
-      {item.video && (
-        <video controls src={URL.createObjectURL(item.video)} style={{ maxWidth: "100%", marginTop: "8px" }} />
+
+      {item.video instanceof Blob && (
+        <video
+          controls
+          src={URL.createObjectURL(item.video)}
+          style={{ maxWidth: "100%", marginTop: "8px" }}
+        />
       )}
-      {item.image && (
-        <img src={URL.createObjectURL(item.image)} alt="post" style={{ maxWidth: "100%", marginTop: "8px" }} />
+
+      {item.image instanceof Blob && (
+        <img
+          src={URL.createObjectURL(item.image)}
+          alt="post"
+          style={{ maxWidth: "100%", marginTop: "8px" }}
+        />
       )}
-      {type === "video" && item.videoFile && (
-        <video controls src={URL.createObjectURL(item.videoFile)} style={{ maxWidth: "100%", marginTop: "8px" }} />
+
+      {type === "video" && item.videoFile instanceof Blob && (
+        <video
+          controls
+          src={URL.createObjectURL(item.videoFile)}
+          style={{ maxWidth: "100%", marginTop: "8px" }}
+        />
       )}
+
       <Button
         variant="outlined"
         color="error"
@@ -80,7 +97,6 @@ function LinkPosts() {
 
   return (
     <Box sx={{ width: "calc(100vw - 300px)", m: 0, p: 0 }}>
-      {/* اللينكات في أقصى اليمين */}
       <Box
         sx={{
           display: "flex",
@@ -89,22 +105,11 @@ function LinkPosts() {
           px: 6,
           py: 2,
           justifyContent: "flex-end",
-          marginTop:"25px"
+          marginTop: "25px",
         }}
       >
         <Link
           to="/messages"
-          style={{
-            textDecoration: "none",
-            color: activeLink === "posts" ? "#E3E3E3" : "inherit",
-            fontWeight: "bold",
-          }}
-          onClick={() => setActiveLink("posts")}
-        >
-          الرسائل
-        </Link>
-        <Link
-          to="/posts"
           style={{
             textDecoration: "none",
             color: activeLink === "messages" ? "#E3E3E3" : "inherit",
@@ -112,16 +117,25 @@ function LinkPosts() {
           }}
           onClick={() => setActiveLink("messages")}
         >
-                    المنتديات (المنشورات)
-
+          الرسائل
+        </Link>
+        <Link
+          to="/posts"
+          style={{
+            textDecoration: "none",
+            color: activeLink === "posts" ? "#E3E3E3" : "inherit",
+            fontWeight: "bold",
+          }}
+          onClick={() => setActiveLink("posts")}
+        >
+          المنتديات (المنشورات)
         </Link>
       </Box>
 
-      {/* الخط الفاصل باستخدام Box */}
       <Box
         sx={{
-          width: "calc(100% - 96px)", // العرض بعد طرح الـ padding (px: 6 = 48px لكل جهة)
-          margin: "0 auto", // التوسيط لضمان المساواة من الناحيتين
+          width: "calc(100% - 96px)",
+          margin: "0 auto",
           borderBottom: "1px solid #ccc",
           opacity: "0.5",
           position: "relative",
@@ -175,7 +189,6 @@ function LinkPosts() {
               ),
             }}
           />
-          
           <Button
             variant="outlined"
             sx={{
@@ -190,25 +203,21 @@ function LinkPosts() {
           </Button>
         </Box>
       </Box>
+
       <AddContentDialog
         open={openAddDialog}
         onClose={() => setOpenAddDialog(false)}
         onPostSubmit={handlePostSubmit}
         onVideoSubmit={handleVideoSubmit}
       />
+
       <Box sx={{ px: 6 }}>
+        <PostSection />
         {posts.map((post) => renderContentItem(post, "post", handleDeletePost))}
         {videos.map((video) => renderContentItem(video, "video", handleDeleteVideo))}
       </Box>
-      {/* <Outlet /> */}
     </Box>
-    
   );
 }
 
 export default LinkPosts;
-
-
-
-
-
