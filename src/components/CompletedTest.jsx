@@ -33,17 +33,19 @@ function CompletedTest() {
           sx={{
             width: { xs: "95%", sm: "85%", md: "75%" },
             display: "flex",
-            alignItems: "center",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: { xs: "center", sm: "flex-start" },
             justifyContent: "space-between",
+            gap: "10px",
             padding: "15px",
             borderRadius: "8px",
             margin: "20px auto",
-            marginRight: { xs: "0px", sm: "20px", md: "250px" },
+            ml: { xs: "auto", sm: "auto", md: "auto", lg: "120px" }, // ✅ التعديل هنا
+            mr: "auto",
             boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-            flexDirection: { xs: "column", sm: "row" },
-            gap: "10px",
             border: "1px solid #BCBCBC",
             position: "relative",
+            textAlign: { xs: "center", sm: "start" },
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -66,14 +68,13 @@ function CompletedTest() {
               تم التسليم <span style={{ color: "#818181", fontWeight: "normal" }}>10:30 صباحًا</span>
             </span>
 
-            {/* بوكس خيارات الإظهار/الإخفاء في المنتصف */}
             {state.showOptions && (
               <Box
                 sx={{
                   position: "absolute",
                   top: "50%",
                   left: "50%",
-                  transform: "translate(-50%, -50%)", // لجعل البوكس في المنتصف تمامًا
+                  transform: "translate(-50%, -50%)",
                   background: "#fff",
                   boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.2)",
                   borderRadius: "12px",
@@ -83,7 +84,7 @@ function CompletedTest() {
                   flexDirection: "column",
                   gap: "15px",
                   border: "1px solid #E0E0E0",
-                  width: "250px", // عرض أكبر
+                  width: "250px",
                   textAlign: "center",
                 }}
               >
@@ -124,11 +125,16 @@ function CompletedTest() {
             <img
               src="/images/logo.jpg"
               alt="Profile"
-              style={{ width: "50px", height: "50px", borderRadius: "50%", objectFit: "cover", border: "1px solid #C7C7C7" }}
+              style={{
+                width: "50px",
+                height: "50px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                border: "1px solid #C7C7C7",
+              }}
             />
           </Box>
 
-          {/* نافذة عرض النتيجة */}
           {state.showResults && state.allowShow && (
             <Box
               sx={{
@@ -201,5 +207,3 @@ function CompletedTest() {
 }
 
 export default CompletedTest;
-
-

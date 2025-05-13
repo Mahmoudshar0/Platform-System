@@ -20,7 +20,11 @@ function AddTestPage() {
     {
       questionText: "",
       type: "multiple",
-      options: [{ text: "", isCorrect: false }, { text: "", isCorrect: false }, { text: "", isCorrect: false }],
+      options: [
+        { text: "", isCorrect: false },
+        { text: "", isCorrect: false },
+        { text: "", isCorrect: false },
+      ],
       essayAnswer: "",
     },
   ]);
@@ -31,7 +35,11 @@ function AddTestPage() {
       {
         questionText: "",
         type: "multiple",
-        options: [{ text: "", isCorrect: false }, { text: "", isCorrect: false }, { text: "", isCorrect: false }],
+        options: [
+          { text: "", isCorrect: false },
+          { text: "", isCorrect: false },
+          { text: "", isCorrect: false },
+        ],
         essayAnswer: "",
       },
     ]);
@@ -81,13 +89,22 @@ function AddTestPage() {
   };
 
   return (
-    <Box sx={{ padding: "20px", maxWidth: "900px", margin: "0 auto", position: "relative" }}>
+    <Box
+      sx={{
+        padding: { xs: "10px", sm: "20px" },
+        maxWidth: "900px",
+        margin: "0 auto",
+        position: "relative",
+        minHeight: "100vh",
+        backgroundColor: "#FFFFFF", // إزالة الخلفية الرمادية
+      }}
+    >
       <Button
         variant="outlined"
         sx={{
           position: "absolute",
-          top: "20px",
-          right: "20px",
+          top: "10px",
+          right: "10px",
           minWidth: "40px",
           padding: "5px",
         }}
@@ -100,15 +117,38 @@ function AddTestPage() {
         إضافة اختبار جديد
       </Typography>
 
+      {/* زر إضافة سؤال في الأعلى */}
+      <Button
+        variant="contained"
+        startIcon={<AddIcon />}
+        onClick={addQuestion}
+        sx={{
+          backgroundColor: "#E8F0FE",
+          color: "#0023E8",
+          border: "1px solid #0023E8",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          mb: 3,
+          width: "200px",
+          margin: "0 auto",
+          display: "block",
+          "&:hover": {
+            backgroundColor: "#D0E2FF",
+          },
+        }}
+      >
+        إضافة سؤال
+      </Button>
+
       {questions.map((question, qIndex) => (
         <Box
           key={qIndex}
           sx={{
             border: "1px solid #E0E0E0",
             borderRadius: "8px",
-            p: 3,
-            mb: 3,
+            p: { xs: 2, sm: 3 },
+            mb: { xs: 2, sm: 3 },
             boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+            backgroundColor: "#FFFFFF", // إزالة الخلفية الرمادية من المربعات
           }}
         >
           <TextField
@@ -116,10 +156,10 @@ function AddTestPage() {
             label={`السؤال ${qIndex + 1}`}
             value={question.questionText}
             onChange={(e) => updateQuestionText(qIndex, e.target.value)}
-            sx={{ mb: 2 }}
+            sx={{ mb: { xs: 1, sm: 2 } }}
           />
 
-          <FormControl component="fieldset" sx={{ mb: 2 }}>
+          <FormControl component="fieldset" sx={{ mb: { xs: 1, sm: 2 } }}>
             <FormLabel component="legend">نوع السؤال</FormLabel>
             <RadioGroup
               row
@@ -132,24 +172,24 @@ function AddTestPage() {
           </FormControl>
 
           {question.type === "multiple" && (
-            <Box sx={{ ml: 2 }}>
+            <Box sx={{ ml: { xs: 1, sm: 2 } }}>
               <FormControl component="fieldset">
                 <FormLabel component="legend" sx={{ display: "inline-block" }}>
                   الخيارات
                 </FormLabel>
                 <Button
-        variant="outlined"
-        color="primary"
-        startIcon={<AddIcon />}
-        onClick={() => addOption(qIndex)}
-          sx={{ marginLeft: "10px", verticalAlign: "middle" }}
->
-  إضافة خيار
-</Button>
+                  variant="outlined"
+                  color="primary"
+                  startIcon={<AddIcon />}
+                  onClick={() => addOption(qIndex)}
+                  sx={{ marginLeft: { xs: "5px", sm: "10px" }, verticalAlign: "middle", mb: 1 }}
+                >
+                  إضافة خيار
+                </Button>
 
                 <RadioGroup>
                   {question.options.map((option, oIndex) => (
-                    <Box key={oIndex} sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                    <Box key={oIndex} sx={{ display: "flex", alignItems: "center", mb: { xs: 0.5, sm: 1 } }}>
                       <FormControlLabel
                         control={
                           <Radio
@@ -164,6 +204,7 @@ function AddTestPage() {
                         label={`الخيار ${oIndex + 1}`}
                         value={option.text}
                         onChange={(e) => updateOptionText(qIndex, oIndex, e.target.value)}
+                        sx={{ mr: 1 }}
                       />
                     </Box>
                   ))}
@@ -180,7 +221,7 @@ function AddTestPage() {
               label="الإجابة المقالية (اختياري)"
               value={question.essayAnswer}
               onChange={(e) => updateEssayAnswer(qIndex, e.target.value)}
-              sx={{ mb: 2 }}
+              sx={{ mb: { xs: 1, sm: 2 } }}
             />
           )}
 
@@ -189,25 +230,44 @@ function AddTestPage() {
             color="error"
             startIcon={<DeleteIcon />}
             onClick={() => removeQuestion(qIndex)}
-            sx={{ mt: 2 }}
+            sx={{ mt: { xs: 1, sm: 2 } }}
           >
             حذف السؤال
           </Button>
         </Box>
       ))}
 
+      {/* زر إضافة سؤال في الأسفل */}
       <Button
         variant="contained"
         startIcon={<AddIcon />}
         onClick={addQuestion}
-        sx={{ background: "#0023E8", color: "white", mb: 3 }}
+        sx={{
+          backgroundColor: "#E8F0FE",
+          color: "#0023E8",
+          border: "1px solid #0023E8",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          mb: 3,
+          width: "200px",
+          margin: "0 auto",
+          display: "block",
+          "&:hover": {
+            backgroundColor: "#D0E2FF",
+          },
+        }}
       >
         إضافة سؤال
       </Button>
 
       <Button
         variant="contained"
-        sx={{ background: "#0023E8", color: "white", display: "block", mx: "auto" }}
+        sx={{
+          background: "#0023E8",
+          color: "white",
+          display: "block",
+          mx: "auto",
+          mb: 2,
+        }}
         onClick={() => console.log("الاختبار:", questions)}
       >
         حفظ الاختبار
@@ -217,7 +277,3 @@ function AddTestPage() {
 }
 
 export default AddTestPage;
-
-
-
-

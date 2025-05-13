@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Box, Button } from "@mui/material";
+import { Box, Button } from "@mui/material"; // إضافة Button للـ import
 import PostCard from "./PostCard";
+import AddContentDialog from "./AddContentDialog";
 
 function PostSection() {
   // State للمنشورات (ديناميكية)
@@ -38,26 +39,70 @@ function PostSection() {
       comments: 8,
       avatar: "/public/imagess/profile3.jpg",
     },
+    {
+      id: 4,
+      userName: "ريهام أحمد",
+      userTitle: "طالبة في كلية الحاسبات",
+      time: "منذ 20 دقيقة",
+      content: "BIS",
+      image: null,
+      likes: 0,
+      comments: 0,
+      avatar: "/public/imagess/profile4.jpg",
+    },
   ]);
 
-  // دالة لحذف منشور معين
+  // State للتحكم في فتح/غلق Dialog
+  const [openAddDialog, setOpenAddDialog] = useState(false);
+
+  // دالة لحذف منشور معين مع رسالة تأكيد
   const handleDeletePost = (id) => {
-    setPosts(posts.filter((post) => post.id !== id));
+    const confirmDelete = window.confirm("هل أنت متأكد أنك تريد حذف هذا المنشور؟");
+    if (confirmDelete) {
+      setPosts(posts.filter((post) => post.id !== id));
+      console.log(`Post with id ${id} deleted.`); // Debugging
+    }
+  };
+
+  // دالة لإضافة منشور جديد
+  const handleAddPost = (newPost) => {
+    const newId = posts.length > 0 ? posts[posts.length - 1].id + 1 : 1; // تحديد ID جديد
+    const postWithDetails = {
+      ...newPost,
+      id: newId,
+      userName: "مستخدم جديد",
+      userTitle: "طالب",
+      time: "الآن",
+      likes: 0,
+      comments: 0,
+      avatar: "/public/imagess/profile5.jpg",
+    };
+    setPosts([postWithDetails, ...posts]); // إضافة المنشور الجديد في الأعلى
+    console.log("New post added:", postWithDetails); // Debugging
+  };
+
+  // دالة لإضافة فيديو (غير مستخدمة حاليًا)
+  const handleAddVideo = (newVideo) => {
+    console.log("New video added:", newVideo); // Debugging
   };
 
   return (
     <Box sx={{ padding: "20px" }}>
+      
+    
+
+      {/* Dialog لإضافة المحتوى */}
+      <AddContentDialog
+        open={openAddDialog}
+        onClose={() => setOpenAddDialog(false)}
+        onPostSubmit={handleAddPost}
+        onVideoSubmit={handleAddVideo}
+      />
+
+      {/* عرض المنشورات */}
       {posts.map((post) => (
         <Box key={post.id} sx={{ marginBottom: "10px" }}>
-          <PostCard post={post} />
-          <Button 
-            variant="contained" 
-            color="error" 
-            onClick={() => handleDeletePost(post.id)}
-            sx={{ marginTop: "10px" }}
-          >
-            حذف المنشور
-          </Button>
+          <PostCard post={post} onDelete={handleDeletePost} />
         </Box>
       ))}
     </Box>
@@ -65,4 +110,3 @@ function PostSection() {
 }
 
 export default PostSection;
-
