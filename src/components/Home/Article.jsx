@@ -68,7 +68,7 @@ const ArticleCard = () => {
 
   return (<Box>
       <Box sx={{ direction: "rtl", display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb:2}}>
-        <Typography variant="h6" fontWeight="bold" color="#000">
+        <Typography paddingInline={2} variant="h6" fontWeight="bold" color="#000">
           المقالات
         </Typography>
         <Button variant="contained" sx={{ bgcolor: '#3f51b5', borderRadius: 2 }}>

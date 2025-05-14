@@ -47,9 +47,9 @@ const VideoStatsComponent = () => {
       <Typography variant="h6" sx={{ fontWeight: "bold", color: "#000" }}>
         الفيديوهات
       </Typography>
-      <Paper elevation={2} direction="rtl" sx={{ justifyContent:"center", gap:{xs:5,md:20}, display:"flex", flexDirection: { xs: "column-reverse", md: "row" }, padding: 4, marginTop: 2 }}>
-        <Box sx={{flexDirection:{
-        }, display: 'flex',  justifyContent: {xs:"center",md:'start'}, alignItems: 'center', borderLeft:{xs:"none", md:"1px solid #777;"}, paddingLeft:{xs:2,md:0}, paddingTop:{xs:2,md:0}}}>
+      <Paper elevation={2} direction="rtl" sx={{ justifyContent:"center", gap:{xs:5,md:10}, display:"flex", flexDirection: { xs: "column-reverse", md: "row" }, padding: 4, marginTop: 2 }}>
+        <Box sx={{
+          display: 'flex', flexDirection: {xs:"column", md:"row"}, justifyContent: {xs:"center",md:'center'}, alignItems: 'center', borderLeft:{xs:"none", md:"1px solid #777;"}, paddingLeft:{xs:0,md:0}, paddingTop:{xs:2,md:0}}}>
           <div className="container">
             <div className='total c'></div>
             <div className='uncompleted c' style={{ background: "conic-gradient(#60a5fa 0deg 180deg,#e5e7eb 180deg 360deg)"}}></div>
@@ -59,7 +59,7 @@ const VideoStatsComponent = () => {
           <Box sx={{
                 marginInline: 2,
                 paddingInline: 5,
-                }}>
+                marginTop:3}}>
               <Typography variant='h5' sx={{
                 borderBottom: '1px solid #000',
                 marginBottom: '1rem',

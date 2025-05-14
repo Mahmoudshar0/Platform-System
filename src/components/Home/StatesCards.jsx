@@ -23,7 +23,7 @@ const StatsCards = () => {
 
    return (
       <>
-      <Typography variant="h6" sx={{ direction: "rtl", fontWeight: "500", color: "#000"}}>
+      <Typography variant="h6" sx={{ paddingInline:2, direction: "rtl", fontWeight: "500", color: "#000"}}>
          الاحصائيات 
          <Box sx={{ width: "100%", height: "1px", backgroundColor: "#aaa", marginTop: 1 }} />
       </Typography>

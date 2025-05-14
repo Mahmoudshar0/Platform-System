@@ -16,7 +16,8 @@ function FilterBar({ activeFilter, onFilterChange, filters, title }) {
       fontSize: '1.5rem',
       fontWeight: 700,
       color: '#111827',
-      margin: 0
+      margin: 0,
+      paddingInline:2
       }}>
         {title}
       </Typography>

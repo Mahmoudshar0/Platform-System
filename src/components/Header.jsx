@@ -129,10 +129,9 @@ function Header() {
   ];
 
   return (
-    <Box sx={{ direction: 'rtl' }}>
+    <Box sx={{ width: { xs: { width: "100%" }, md: `calc(100% - 200px)` }, direction: 'rtl' }}>
       <Box
         sx={{
-          marginRight: '62px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-end',
@@ -143,7 +142,7 @@ function Header() {
         }}
       >
         {/* Profile Section */}
-        <Box sx={{ display: 'flex', alignItems: 'end', gap: '10px' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '20px', xs: { marginLeft: "50px" }}}>
           <img
             src="/images/logo.jpg"
             alt="Profile"
@@ -155,7 +154,7 @@ function Header() {
               border: '1px solid #C7C7C7',
             }}
           />
-          <Box sx={{ textAlign: 'right' }}>
+          <Box sx={{ textAlign: 'right', minWidth: '120px', }}>
             <Typography
               sx={{
                 margin: 0,
@@ -165,7 +164,7 @@ function Header() {
                 fontFamily: 'Tajawal, sans-serif',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'flex-end',
+                justifyContent: 'flex-start',
                 gap: '5px',
               }}
             >
@@ -178,6 +177,7 @@ function Header() {
                 fontSize: '14px',
                 color: '#818181',
                 marginTop: '3px',
+                
               }}
             >
               د. محمد عبد الحميد
