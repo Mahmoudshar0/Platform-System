@@ -7,15 +7,19 @@ import NotificationsButton from './NotificationsButton';
 import SearchField from './SearchField';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import {useTheme
+} from '@mui/material';
 
 function Header() {
+  const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
   const [showMessages, setShowMessages] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [moreMenuAnchorEl, setMoreMenuAnchorEl] = useState(null);
 
-  const isSmallScreen = useMediaQuery('(max-width:600px)');
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleMaxLimitClick = () => {
     console.log('الحد الأقصى تم النقر عليه');
@@ -129,20 +133,49 @@ function Header() {
   ];
 
   return (
-    <Box sx={{ width: { xs: { width: "100%" }, md: `calc(100% - 200px)` }, direction: 'rtl' }}>
+    <Box
+      sx={{
+        paddingInline: "15px",
+        width: '100%',
+        direction: 'rtl',
+        borderBottom: '1px solid #eaeaea',
+        backgroundColor: '#ffffff',
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
+          flexDirection: {
+            xs: 'column',
+            sm: 'row',
+          },
           alignItems: 'center',
-          justifyContent: 'flex-end',
-          padding: '10px 30px',
-          width: 'calc(100% - 230px)',
-          gap: '15px',
+          justifyContent: {
+            xs: 'center',
+            sm: 'space-between',
+          },
+          padding: {
+            xs: '10px 15px',
+            sm: '10px 20px',
+          },
+          gap: {
+            xs: '15px',
+            sm: '20px',
+          },
           position: 'relative',
         }}
       >
         {/* Profile Section */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '20px', xs: { marginLeft: "50px" }}}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '15px',
+            width: { xs: '100%', sm: 'auto' },
+            justifyContent: { xs: 'center', sm: 'flex-start' },
+            order: { xs: 1, sm: 1 },
+          }}
+        >
           <img
             src="/images/logo.jpg"
             alt="Profile"
@@ -154,30 +187,27 @@ function Header() {
               border: '1px solid #C7C7C7',
             }}
           />
-          <Box sx={{ textAlign: 'right', minWidth: '120px', }}>
+          <Box sx={{ textAlign: 'right' }}>
             <Typography
               sx={{
-                margin: 0,
                 fontSize: '14px',
-                fontWeight: '500',
-                color: '#000000',
+                fontWeight: 500,
+                color: '#000',
                 fontFamily: 'Tajawal, sans-serif',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'flex-start',
                 gap: '5px',
+                minWidth: '130px',
               }}
             >
               مرحبًا بك..👋
             </Typography>
             <Typography
               sx={{
-                fontFamily: 'Tajawal, sans-serif',
-                fontWeight: '700',
+                fontWeight: 700,
                 fontSize: '14px',
                 color: '#818181',
-                marginTop: '3px',
-                
+                fontFamily: 'Tajawal, sans-serif',
               }}
             >
               د. محمد عبد الحميد
@@ -185,89 +215,111 @@ function Header() {
           </Box>
         </Box>
 
-        {/* Search Section */}
-        {isSmallScreen ? (
-          <Box>
-            <IconButton onClick={() => setShowSearch(!showSearch)}>
-              <SearchIcon />
-            </IconButton>
-            {showSearch && (
-              <Box sx={{ position: 'absolute', top: '80px', right: '30px', zIndex: '10', width: 'calc(100% - 92px)' }}>
-                <SearchField />
-              </Box>
-            )}
-          </Box>
-        ) : (
-          <SearchField />
-        )}
+        {/* Search Section - Responsive handling */}
+        <Box 
+          sx={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            justifyContent: { xs: 'center', sm: 'flex-start' },
+            width: { xs: '100%', sm: '250px' },
+            order: { xs: 3, sm: 2 },
+            position: 'relative',
+          }}
+        >
+          {isSmallScreen ? (
+            <>
+              <IconButton onClick={() => setShowSearch(!showSearch)}>
+                <SearchIcon />
+              </IconButton>
+              {showSearch && (
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: '100%',
+                    right: '0',
+                    zIndex: 10,
+                    width: '100%',
+                    maxWidth: '250px',
+                  }}
+                >
+                  <SearchField />
+                </Box>
+              )}
+            </>
+          ) : (
+            <Box sx={{ width: '100%' }}>
+              <SearchField />
+            </Box>
+          )}
+        </Box>
 
-        {/* Action Buttons or More Icon */}
-        {isSmallScreen ? (
-          <Box>
-            <IconButton
-              onClick={handleMoreMenuOpen}
-              sx={{ position: 'relative', zIndex: 11 }}
-            >
-              <MoreVertIcon />
-            </IconButton>
-            <Menu
-              anchorEl={moreMenuAnchorEl}
-              open={Boolean(moreMenuAnchorEl)}
-              onClose={handleMoreMenuClose}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-              sx={{ zIndex: 12 }}
-            >
-              <MenuItem sx={{ display: 'flex', alignItems: 'center', gap: 1, direction: 'rtl' }}>
-                <NotificationsButton
-                  showNotifications={showNotifications}
-                  setShowNotifications={setShowNotifications}
-                  messages={messages}
-                  newMessage={newMessage}
-                  handleMaxLimitClick={handleMaxLimitClick}
-                />
-                <Typography sx={{ fontSize: '14px', fontFamily: 'Tajawal', textAlign: 'right' }}>الإشعارات</Typography>
-              </MenuItem>
-              <MenuItem sx={{ display: 'flex', alignItems: 'center', gap: 1, direction: 'rtl', justifyContent: 'flex-end' }}>
-  <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
-    <MessagesButton
-      showMessages={showMessages}
-      setShowMessages={setShowMessages}
-      anchorEl={anchorEl}
-      setAnchorEl={setAnchorEl}
-      messageUsers={messageUsers}
-    />
-    <Typography sx={{ fontSize: '14px', fontFamily: 'Tajawal', textAlign: 'right' }}>
-      الرسائل
-    </Typography>
-  </Box>
-</MenuItem>
-
-              <MenuItem sx={{ display: 'flex', alignItems: 'center', gap: 1, direction: 'rtl' }}>
-                <AddButton />
-                <Typography sx={{ fontSize: '14px', fontFamily: 'Tajawal', textAlign: 'right' }}>إضافة</Typography>
-              </MenuItem>
-            </Menu>
-          </Box>
-        ) : (
-          <Box sx={{ display: 'flex', gap: '10px' }}>
-            <NotificationsButton
-              showNotifications={showNotifications}
-              setShowNotifications={setShowNotifications}
-              messages={messages}
-              newMessage={newMessage}
-              handleMaxLimitClick={handleMaxLimitClick}
-            />
-            <MessagesButton
-              showMessages={showMessages}
-              setShowMessages={setShowMessages}
-              anchorEl={anchorEl}
-              setAnchorEl={setAnchorEl}
-              messageUsers={messageUsers}
-            />
-            <AddButton />
-          </Box>
-        )}
+        {/* Action Buttons - Responsive handling */}
+        <Box 
+          sx={{ 
+            order: { xs: 2, sm: 3 },
+            display: 'flex',
+            justifyContent: { xs: 'center', sm: 'flex-end' },
+            width: { xs: '100%', sm: 'auto' },
+          }}
+        >
+          {isSmallScreen ? (
+            <>
+              <IconButton onClick={handleMoreMenuOpen} sx={{ zIndex: 1 }}>
+                <MoreVertIcon />
+              </IconButton>
+              <Menu
+                anchorEl={moreMenuAnchorEl}
+                open={Boolean(moreMenuAnchorEl)}
+                onClose={handleMoreMenuClose}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+              >
+                <MenuItem sx={{ display: 'flex', alignItems: 'center', gap: 1, direction: 'rtl' }}>
+                  <NotificationsButton
+                    showNotifications={showNotifications}
+                    setShowNotifications={setShowNotifications}
+                    messages={messages}
+                    newMessage={newMessage}
+                    handleMaxLimitClick={handleMaxLimitClick}
+                  />
+                  <Typography sx={{ fontSize: '14px', fontFamily: 'Tajawal' }}>الإشعارات</Typography>
+                </MenuItem>
+                <MenuItem sx={{ display: 'flex', alignItems: 'center', gap: 1, direction: 'rtl' }}>
+                  <MessagesButton
+                    showMessages={showMessages}
+                    setShowMessages={setShowMessages}
+                    anchorEl={anchorEl}
+                    setAnchorEl={setAnchorEl}
+                    messageUsers={messageUsers}
+                  />
+                  <Typography sx={{ fontSize: '14px', fontFamily: 'Tajawal' }}>الرسائل</Typography>
+                </MenuItem>
+                <MenuItem sx={{ display: 'flex', alignItems: 'center', gap: 1, direction: 'rtl' }}>
+                  <AddButton />
+                  <Typography sx={{ fontSize: '14px', fontFamily: 'Tajawal' }}>إضافة</Typography>
+                </MenuItem>
+              </Menu>
+            </>
+          ) : (
+            <Box sx={{ display: 'flex', gap: '10px' }}>
+              <NotificationsButton
+                showNotifications={showNotifications}
+                setShowNotifications={setShowNotifications}
+                messages={messages}
+                newMessage={newMessage}
+                handleMaxLimitClick={handleMaxLimitClick}
+              />
+              <MessagesButton
+                showMessages={showMessages}
+                setShowMessages={setShowMessages}
+                anchorEl={anchorEl}
+                setAnchorEl={setAnchorEl}
+                messageUsers={messageUsers}
+              />
+              <AddButton />
+            </Box>
+          )}
+        </Box>
       </Box>
     </Box>
   );

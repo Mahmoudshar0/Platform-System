@@ -8,6 +8,7 @@ const SearchField = () => {
       placeholder="بحث..."
       variant="outlined"
       sx={{
+        minWidth: '150px',
         bgcolor: '#F0F0F0',
         borderRadius: '50px',
         width: '35%',

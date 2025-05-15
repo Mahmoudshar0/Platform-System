@@ -38,7 +38,6 @@ const MessagesButton = ({ showMessages, setShowMessages, anchorEl, setAnchorEl, 
         border: '1px solid #CCCCCC',
         borderRadius: '50%',
         cursor: 'pointer',
-        marginRight: '300px',
         position: 'relative',
       }}
       onClick={handleToggleMessages}
