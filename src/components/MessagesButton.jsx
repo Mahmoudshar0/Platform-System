@@ -21,10 +21,9 @@ const MessagesButton = ({ showMessages, setShowMessages, anchorEl, setAnchorEl, 
     setShowMessages(!showMessages);
   };
 
-  // دالة لإغلاق مربع الرسائل لما تضغطي برا
   const handleClickAway = () => {
     setShowMessages(false);
-    setAnchorEl(null); // إغلاق القايمة كمان لو مفتوحة
+    setAnchorEl(null); 
   };
 
   return (

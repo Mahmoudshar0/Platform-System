@@ -48,7 +48,7 @@ return (
       >
       <Box
       component="img"
-      src="./public/images/logo.jpg"
+      src="./images/logo.jpg"
       alt="Logo"
       sx={{ width: 250, height: 250}}
       />

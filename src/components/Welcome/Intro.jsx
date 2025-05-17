@@ -1,4 +1,4 @@
-import logo from "/public/images/logo.jpg";
+import logo from "/images/logo.jpg";
 import { useNavigate } from 'react-router-dom';
 export default function Intro({ explore }) {
    const navigate = useNavigate();

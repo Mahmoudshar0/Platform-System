@@ -6,17 +6,17 @@ import { Box } from '@mui/material';
 const MainLayout = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Sidebar />  {/* Your existing sidebar */}
+      <Sidebar />
       <Box sx={{ 
-        flexGrow: 1, 
-        marginRight: { xs: 0, md: '200px' }  // Adjust based on your sidebar width
+        flexGrow: 1,
+        width: { xs: 'calc(100% - 20px)', md: 'calc(100% - 200px)' },
       }}>
         <Header />
-      <div>
+      </Box>
+      <Box sx={{ flexGrow: 1 }}>
         <Outlet />
-      </div>
       </Box>
-      </Box>
+    </Box>
   );
 };
 

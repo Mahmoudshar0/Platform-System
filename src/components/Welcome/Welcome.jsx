@@ -1,7 +1,7 @@
 import Intro from "./Intro";
 import Break from "./break";
 import Section from "./Section";
-import logo from "/public/images/logo.jpg";
+import logo from "/images/logo.jpg";
 export default function Welcome() {
 
    let uniData = {
@@ -11,22 +11,22 @@ export default function Welcome() {
          {
             "name": "Olivia Rhye",
             "role": "Founder & CEO",
-            "img": "/public/images/Avatar.png"
+            "img": "/images/Avatar.png"
          },
          {
             "name": "Phoenix Baker",
             "role": "Engineering Manager",
-            "img": "/public/images/Avatar-1.png"
+            "img": "/images/Avatar-1.png"
          },
          {
             "name": "Lana Steiner",
             "role": "Product Manager",
-            "img": "/public/images/Avatar-2.png"
+            "img": "/images/Avatar-2.png"
          },
          {
             "name": "Demi Wilkinson",
             "role": "Frontend Developer",
-            "img": "/public/images/Avatar-3.png"
+            "img": "/images/Avatar-3.png"
          }
       ]
 }
@@ -38,37 +38,37 @@ let teamData = {
     {
       "name": "Engineer : Mohamed Reda",
       "role": "Flutter mobile application developer",
-      "img": "/public/images/Avatar-4.png"
+      "img": "/images/Avatar-4.png"
     },
     {
       "name": "Engineer : Samir",
       "role": "Ui Ux Design",
-      "img": "/public/images/Avatar-5.png"
+      "img": "/images/Avatar-5.png"
     },
     {
       "name": "Engineer Ahmed Hassan",
       "role": "Senior Backend developer",
-      "img": "/public/images/Avatar-5.png"
+      "img": "/images/Avatar-5.png"
     },
     {
       "name": "Engineer Mahmoud",
       "role": "Front-end developer",
-      "img": "/public/images/Avatar-1.png"
+      "img": "/images/Avatar-1.png"
     },
     {
       "name": "Engineer: Rawda",
       "role": "Front-end developer",
-      "img": "/public/images/Avatar.png"
+      "img": "/images/Avatar.png"
     },
     {
       "name": "Engineer : Rawan",
       "role": "Front-end developer",
-      "img": "/public/images/Avatar.png"
+      "img": "/images/Avatar.png"
     },
     {
       "name": "Engineer : Renad",
       "role": "Front-end developer",
-      "img": "/public/images/Avatar.png"
+      "img": "/images/Avatar.png"
     }
   ]
 }

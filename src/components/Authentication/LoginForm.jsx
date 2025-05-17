@@ -43,7 +43,7 @@ return (
       }}
       >
       <img
-         src="/public/images/logo.jpg"
+         src="/images/logo.jpg"
          alt="Logo"
          style={{ width: "250px", height: "250px", marginBottom:20 }}
       />
