@@ -31,6 +31,16 @@ import SettingPage from "./Settings/SettingPage";
 // import LiveVideo from "./components/Home/LiveVideo";
 import Welcome from "./components/Welcome/Welcome";
 import Domain from "./components/Welcome/Domain";
+
+// import all user pages
+ import  {PdfPage} from "./pages/PdfPage/PdfPage";
+
+// PDF Viewer
+import { PDFViewerPage } from "./pages/PdfPage/PDFViewer"; 
+
+// Articles
+import ArticlePage from "./pages/Articlespage/Articlepage";
+import Article  from "./pages/Articlespage/Article";
 const App = () => {
   return (
     <Router>
@@ -66,6 +76,18 @@ const App = () => {
           <Route path="/assignments" element={<Assignments />} />
           <Route path="/settings" element={<SettingPage />} />
           {/* <Route path="/live" element={<LiveVideo />} /> */}
+
+
+          {/* User Pages */}
+          <Route path="/pdfpage" element={<PdfPage/>} />
+          <Route path="/pdf-viewer/:pdfId" element={<PDFViewerPage/>} />
+          {/* //--------------------- */}
+           <Route path="/article" element={<ArticlePage/>} /> 
+           <Route path="/article/:articleId" element={<Article />} />
+
+
+
+
         </Route>
       </Routes>
     </Router>
