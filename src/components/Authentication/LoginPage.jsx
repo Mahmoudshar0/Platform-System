@@ -9,17 +9,18 @@ const LoginContainer = styled(Box)(({ theme }) => ({
    direction: 'rtl',
    flexDirection: 'row',
    [theme.breakpoints.down(900)]: {
-   flexDirection: 'column-reverse',
+      flexDirection: 'column-reverse',
    },
 }));
 
+
 const LoginPage = () => {
-return (
-   <LoginContainer>
-      <LoginForm />
-      <LoginInfo btn={true} />
-   </LoginContainer>
-);
+   return (
+      <LoginContainer>
+         <LoginForm />
+         <LoginInfo btn={true} />
+      </LoginContainer>
+   );
 };
 
 export default LoginPage;

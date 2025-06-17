@@ -7,7 +7,7 @@ import MessageList from './MessageList';
 // ------------------------------------------------
 
 const MessagesButton = ({ showMessages, setShowMessages, anchorEl, setAnchorEl, messageUsers }) => {
-  console.log(messageUsers);
+
 
   const handleClick = (event) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);

@@ -8,11 +8,11 @@ const SearchField = () => {
       placeholder="بحث..."
       variant="outlined"
       sx={{
-        minWidth: '150px',
+
         bgcolor: '#F0F0F0',
         borderRadius: '50px',
-        width: '35%',
-        marginRight:"40px",
+        width: '100%',
+        marginRight: "40px",
         '& .MuiOutlinedInput-root': {
           borderRadius: '50px',
           fontSize: '14px',

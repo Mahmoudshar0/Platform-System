@@ -1,113 +1,142 @@
-import { useState } from 'react';
 import { Upload } from 'lucide-react';
-
-export default function VideoUploadForm({ onClose }) {
-  const [formData, setFormData] = useState({
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+export default function VideoUploadForm({ onClose, }) { // أضف courseId كـ prop
+  const initialValues = {
     title: '',
-    name: '',
-    shortDescription: '',
-    fullDescription: '',
-    videoFile: null
+    order: '',
+    description: '',
+    video: null,
+  };
+
+  const validationSchema = Yup.object({
+    title: Yup.string().required('العنوان مطلوب'),
+    order: Yup.number().required('الترتيب مطلوب').typeError('الترتيب يجب أن يكون رقماً'),
+    description: Yup.string().required('الوصف مطلوب'),
+    video: Yup.mixed().required('يرجى تحميل ملف الفيديو'),
   });
+  const token = Cookies.get('token');
+  console.log(token)
+  const handleSubmit = async (values) => {
+    const formData = new FormData();
+    formData.append('title', values.title);
+    formData.append('order', values.order);
+    formData.append('description', values.description);
+    formData.append('video', values.video);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
+    try {
+      const response = await axios.post(
+        `http://localhost:5000/api/v1/courses/${123}/videos`, // أضف courseId إلى المسار
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        }
+      );
 
-  const handleFileChange = (e) => {
-    setFormData(prevState => ({
-      ...prevState,
-      videoFile: e.target.files[0]
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically handle the form submission
-    // like sending data to an API
-    
-    // Close the form after submission
-    onClose();
+      if (response.status >= 200 && response.status < 300) {
+        alert('تم رفع الفيديو بنجاح');
+        onClose();
+      } else {
+        throw new Error('فشل التحميل');
+      }
+    } catch (error) {
+      console.error('Upload error:', error);
+      alert(`حدث خطأ أثناء رفع الفيديو: ${error.response?.data?.message || error.message}`);
+    }
   };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg w-full max-w-md p-6 relative">
-        {/* Close button */}
-        <button 
+      <div className="bg-white rounded-lg w-full max-w-md p-6 relative" dir="rtl">
+        <button
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
           onClick={onClose}
         >
           ×
         </button>
-        
-        <form onSubmit={handleSubmit} className="space-y-4" dir="rtl">
-          <h2 className="text-lg font-semibold text-center mb-6">إضافة فيديو</h2>
-          
-          {/* Form fields remain the same */}
-          <div>
-            <label className="block text-sm mb-1 text-right">عنوان الفيديو</label>
-            <input
-              type="text"
-              name="title"
-              value={formData.title}
-              onChange={handleInputChange}
-              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="اسم الفيديو"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm mb-1 text-right">وصف قصير للفيديو</label>
-            <input
-              type="text"
-              name="shortDescription"
-              value={formData.shortDescription}
-              onChange={handleInputChange}
-              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm mb-1 text-right">وصف الفيديو</label>
-            <textarea
-              name="fullDescription"
-              value={formData.fullDescription}
-              onChange={handleInputChange}
-              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 h-20"
-            />
-          </div>
-          
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
-            <input
-              type="file"
-              id="videoUpload"
-              name="videoFile"
-              onChange={handleFileChange}
-              className="hidden"
-              accept="video/*"
-            />
-            <label 
-              htmlFor="videoUpload" 
-              className="cursor-pointer flex flex-col items-center justify-center text-gray-500"
-            >
-              <Upload className="mb-2" size={24} />
-              <span>تحميل الفيديو</span>
-            </label>
-          </div>
-          
-          <button
-            type="submit"
-            className="w-full py-3 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition-colors"
-          >
-            إرسال الملفات
-          </button>
-        </form>
+
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ setFieldValue, errors, touched }) => (
+            <Form className="space-y-4">
+              <h2 className="text-lg font-semibold text-center mb-6">إضافة فيديو</h2>
+
+              {/* باقي الحقول كما هي */}
+              <div>
+                <label className="block text-sm mb-1">عنوان الفيديو</label>
+                <Field
+                  name="title"
+                  type="text"
+                  className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                  placeholder="عنوان الفيديو"
+                />
+                {touched.title && errors.title && (
+                  <div className="text-red-500 text-sm">{errors.title}</div>
+                )}
+              </div>
+
+              <div>
+                <label className="block text-sm mb-1">ترتيب الفيديو</label>
+                <Field
+                  name="order"
+                  type="number"
+                  className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                  placeholder="مثلاً 1 أو 2"
+                />
+                {touched.order && errors.order && (
+                  <div className="text-red-500 text-sm">{errors.order}</div>
+                )}
+              </div>
+
+              <div>
+                <label className="block text-sm mb-1">وصف الفيديو</label>
+                <Field
+                  as="textarea"
+                  name="description"
+                  className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 h-20"
+                />
+                {touched.description && errors.description && (
+                  <div className="text-red-500 text-sm">{errors.description}</div>
+                )}
+              </div>
+
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                <input
+                  type="file"
+                  name="video"
+                  accept="video/*"
+                  onChange={(e) => setFieldValue('video', e.currentTarget.files[0])}
+                  className="hidden"
+                  id="videoUpload"
+                />
+                <label htmlFor="videoUpload" className="cursor-pointer flex flex-col items-center text-gray-500">
+                  <Upload className="mb-2" size={24} />
+                  <span>تحميل الفيديو</span>
+                </label>
+                {touched.video && errors.video && (
+                  <div className="text-red-500 text-sm mt-2">{errors.video}</div>
+                )}
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-3 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition-colors"
+              >
+                إرسال الفيديو
+              </button>
+            </Form>
+          )}
+        </Formik>
       </div>
     </div>
   );

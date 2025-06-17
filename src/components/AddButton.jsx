@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Dialog, DialogTitle, DialogContent, IconButton, Stack, Box } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 import { Link as MUILink } from '@mui/material';
 
-const AddButton= () => {
+const AddButton = () => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -61,7 +61,7 @@ const AddButton= () => {
           <Stack spacing={2} sx={{ width: '100%', textAlign: 'center' }}>
             <MUILink
               component={RouterLink}
-              to="/home"
+              to="/"
               underline="none"
               sx={{
                 display: 'block',
@@ -87,12 +87,12 @@ const AddButton= () => {
               underline="none"
               sx={{
                 display: 'block',
-                width: '100%', 
+                width: '100%',
                 color: 'text.primary',
                 fontSize: '16px',
                 fontFamily: 'Arial',
                 transition: '0.3s',
-                padding: '10px 0', 
+                padding: '10px 0',
                 textAlign: 'center',
                 '&:hover': { color: '#0026FF' },
                 '@media (max-width: 600px)': {

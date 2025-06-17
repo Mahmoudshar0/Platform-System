@@ -31,10 +31,18 @@ import SettingPage from "./Settings/SettingPage";
 // import LiveVideo from "./components/Home/LiveVideo";
 import Welcome from "./components/Welcome/Welcome";
 import Domain from "./components/Welcome/Domain";
+import UserDashboard from "./components/UserDashboard/UserHome";
+import EvaluationList from "./components/UserDashboard/EducationalContent/EvaluationList";
+import HomeworkProgress from "./components/UserDashboard/EducationalContent/AssignmentReview";
+import UserProfile from "./components/UserDashboard/Interaction page/Socialmedia/Userprofile";
+import VideoUploadForm from "./components/Home/VideoUploadForm";
+import Notifications from "./components/UserDashboard/Interaction page/Socialmedia/Notifications";
+import ProtectedRoute from "./components/Authentication/ProtectedRoute";
+import MainDashboard from "./components/UserDashboard/MainDashboard";
+
 const App = () => {
   return (
     <Router>
-
       <Routes>
         {/* Auth Routes */}
         <Route element={<AuthLayout />}>
@@ -44,6 +52,15 @@ const App = () => {
           <Route path="/password-reset" element={<ResetPasswordPage />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/domain" element={<Domain />} />
+        </Route>
+
+        <Route element={<UserDashboard />}>
+          <Route path="/userdashboard" element={<MainDashboard />} />
+          <Route path="/userdashboard/evaluationList" element={<EvaluationList />} />
+          <Route path="/userdashboard/assignment" element={<HomeworkProgress />} />
+          <Route path="/userdashboard/userprofile" element={<UserProfile />} />
+          <Route path="/userdashboard/VideoUploadForm" element={<VideoUploadForm />} />
+          <Route path="/userdashboard/notifications" element={<Notifications />} />
         </Route>
 
         {/* Main App Routes */}
@@ -65,7 +82,6 @@ const App = () => {
           <Route path="/pages" element={<TestPages />} />
           <Route path="/assignments" element={<Assignments />} />
           <Route path="/settings" element={<SettingPage />} />
-          {/* <Route path="/live" element={<LiveVideo />} /> */}
         </Route>
       </Routes>
     </Router>
