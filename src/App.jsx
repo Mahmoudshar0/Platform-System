@@ -39,6 +39,8 @@ import VideoUploadForm from "./components/Home/VideoUploadForm";
 import Notifications from "./components/UserDashboard/Interaction page/Socialmedia/Notifications";
 import ProtectedRoute from "./components/Authentication/ProtectedRoute";
 import MainDashboard from "./components/UserDashboard/MainDashboard";
+import ListTests from "./components/UserDashboard/ListTests";
+import SubmitAssignments from "./components/UserDashboard/SubmitAssignments";
 
 const App = () => {
   return (
@@ -61,6 +63,9 @@ const App = () => {
           <Route path="/userdashboard/userprofile" element={<UserProfile />} />
           <Route path="/userdashboard/VideoUploadForm" element={<VideoUploadForm />} />
           <Route path="/userdashboard/notifications" element={<Notifications />} />
+          <Route path="/userdashboard/ListTests" element={<ListTests />} />
+          <Route path="/userdashboard/SubmitAssignments" element={<SubmitAssignments />} />
+
         </Route>
 
         {/* Main App Routes */}

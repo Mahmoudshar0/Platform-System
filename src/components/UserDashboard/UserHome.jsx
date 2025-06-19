@@ -30,8 +30,8 @@ const menuItems = [
       { text: "الفيديوهات التعليمية", icon: <VideoLibraryIcon />, path: "/educational/videos" },
       { text: "PDF محاضرات", icon: <PictureAsPdfIcon />, path: "/educational/lectures" },
       { text: "المقالات", icon: <ArticleIcon />, path: "/educational/articles" },
-      { text: "إدارة الاختبارات", icon: <QuizIcon />, path: "/userdashboard/educational/test" },
-      { text: "تقديم الواجبات", icon: <SendIcon />, path: "/educational/submit" },
+      { text: "إدارة الاختبارات", icon: <QuizIcon />, path: "/userdashboard/ListTests" },
+      { text: "تقديم الواجبات", icon: <SendIcon />, path: "/userdashboard/SubmitAssignments" },
     ]
   },
   {
