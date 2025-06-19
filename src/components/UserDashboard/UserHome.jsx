@@ -32,6 +32,7 @@ const menuItems = [
       { text: "المقالات", icon: <ArticleIcon />, path: "/educational/articles" },
       { text: "إدارة الاختبارات", icon: <QuizIcon />, path: "/userdashboard/ListTests" },
       { text: "تقديم الواجبات", icon: <SendIcon />, path: "/userdashboard/SubmitAssignments" },
+      { text: "صفحة Chat GPT", icon: <ChatIcon />, path: "/userdashboard/ChatGPT" },
     ]
   },
   {
