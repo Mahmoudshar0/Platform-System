@@ -1,7 +1,7 @@
 import Intro from "./Intro";
 import Break from "./break";
 import Section from "./Section";
-import logo from "/images/logo.jpg";
+// import logo from "/images/logo.jpg";
 export default function Welcome() {
 
    let uniData = {
@@ -29,49 +29,49 @@ export default function Welcome() {
             "img": "/images/Avatar-3.png"
          }
       ]
-}
+   }
 
-let teamData = {
-  "title": "Meet our team",
-  "description": "Our philosophy is simple — hire a team of diverse, passionate people and foster a culture that empowers you to do your best work.",
-  "members": [
-    {
-      "name": "Engineer : Mohamed Reda",
-      "role": "Flutter mobile application developer",
-      "img": "/images/Avatar-4.png"
-    },
-    {
-      "name": "Engineer : Samir",
-      "role": "Ui Ux Design",
-      "img": "/images/Avatar-5.png"
-    },
-    {
-      "name": "Engineer Ahmed Hassan",
-      "role": "Senior Backend developer",
-      "img": "/images/Avatar-5.png"
-    },
-    {
-      "name": "Engineer Mahmoud",
-      "role": "Front-end developer",
-      "img": "/images/Avatar-1.png"
-    },
-    {
-      "name": "Engineer: Rawda",
-      "role": "Front-end developer",
-      "img": "/images/Avatar.png"
-    },
-    {
-      "name": "Engineer : Rawan",
-      "role": "Front-end developer",
-      "img": "/images/Avatar.png"
-    },
-    {
-      "name": "Engineer : Renad",
-      "role": "Front-end developer",
-      "img": "/images/Avatar.png"
-    }
-  ]
-}
+   let teamData = {
+      "title": "Meet our team",
+      "description": "Our philosophy is simple — hire a team of diverse, passionate people and foster a culture that empowers you to do your best work.",
+      "members": [
+         {
+            "name": "Engineer : Mohamed Reda",
+            "role": "Flutter mobile application developer",
+            "img": "/images/Avatar-4.png"
+         },
+         {
+            "name": "Engineer : Samir",
+            "role": "Ui Ux Design",
+            "img": "/images/Avatar-5.png"
+         },
+         {
+            "name": "Engineer Ahmed Hassan",
+            "role": "Senior Backend developer",
+            "img": "/images/Avatar-5.png"
+         },
+         {
+            "name": "Engineer Mahmoud",
+            "role": "Front-end developer",
+            "img": "/images/Avatar-1.png"
+         },
+         {
+            "name": "Engineer: Rawda",
+            "role": "Front-end developer",
+            "img": "/images/Avatar.png"
+         },
+         {
+            "name": "Engineer : Rawan",
+            "role": "Front-end developer",
+            "img": "/images/Avatar.png"
+         },
+         {
+            "name": "Engineer : Renad",
+            "role": "Front-end developer",
+            "img": "/images/Avatar.png"
+         }
+      ]
+   }
 
 
 

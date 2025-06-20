@@ -32,6 +32,7 @@ import SettingPage from "./Settings/SettingPage";
 import Welcome from "./components/Welcome/Welcome";
 import Domain from "./components/Welcome/Domain";
 
+
 // import all user pages
  import  {PdfPage} from "./pages/PdfPage/PdfPage";
 
@@ -41,10 +42,21 @@ import { PDFViewerPage } from "./pages/PdfPage/PDFViewer";
 // Articles
 import ArticlePage from "./pages/Articlespage/Articlepage";
 import Article  from "./pages/Articlespage/Article";
+import UserDashboard from "./components/UserDashboard/UserHome";
+import EvaluationList from "./components/UserDashboard/EducationalContent/EvaluationList";
+import HomeworkProgress from "./components/UserDashboard/EducationalContent/AssignmentReview";
+import UserProfile from "./components/UserDashboard/Interaction page/Socialmedia/Userprofile";
+import VideoUploadForm from "./components/Home/VideoUploadForm";
+import Notifications from "./components/UserDashboard/Interaction page/Socialmedia/Notifications";
+import ProtectedRoute from "./components/Authentication/ProtectedRoute";
+import MainDashboard from "./components/UserDashboard/MainDashboard";
+import ListTests from "./components/UserDashboard/ListTests";
+import SubmitAssignments from "./components/UserDashboard/SubmitAssignments";
+import ChatGPT from "./components/UserDashboard/ChatGPT";
+
 const App = () => {
   return (
     <Router>
-
       <Routes>
         {/* Auth Routes */}
         <Route element={<AuthLayout />}>
@@ -54,6 +66,18 @@ const App = () => {
           <Route path="/password-reset" element={<ResetPasswordPage />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/domain" element={<Domain />} />
+        </Route>
+
+        <Route element={<UserDashboard />}>
+          <Route path="/userdashboard" element={<MainDashboard />} />
+          <Route path="/userdashboard/evaluationList" element={<EvaluationList />} />
+          <Route path="/userdashboard/assignment" element={<HomeworkProgress />} />
+          <Route path="/userdashboard/userprofile" element={<UserProfile />} />
+          <Route path="/userdashboard/VideoUploadForm" element={<VideoUploadForm />} />
+          <Route path="/userdashboard/notifications" element={<Notifications />} />
+          <Route path="/userdashboard/ListTests" element={<ListTests />} />
+          <Route path="/userdashboard/SubmitAssignments" element={<SubmitAssignments />} />
+          <Route path="/userdashboard/ChatGPT" element={<ChatGPT />} />
         </Route>
 
         {/* Main App Routes */}
@@ -75,6 +99,7 @@ const App = () => {
           <Route path="/pages" element={<TestPages />} />
           <Route path="/assignments" element={<Assignments />} />
           <Route path="/settings" element={<SettingPage />} />
+
           {/* <Route path="/live" element={<LiveVideo />} /> */}
 
 
@@ -84,10 +109,6 @@ const App = () => {
           {/* //--------------------- */}
            <Route path="/article" element={<ArticlePage/>} /> 
            <Route path="/article/:articleId" element={<Article />} />
-
-
-
-
         </Route>
       </Routes>
     </Router>

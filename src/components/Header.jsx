@@ -7,7 +7,9 @@ import NotificationsButton from './NotificationsButton';
 import SearchField from './SearchField';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import {useTheme
+import { useUser } from '../contexst/UserContext'
+import {
+  useTheme
 } from '@mui/material';
 
 function Header() {
@@ -17,9 +19,11 @@ function Header() {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [moreMenuAnchorEl, setMoreMenuAnchorEl] = useState(null);
+  const user = localStorage.getItem('user');
+  console.log(user);
 
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
+  // const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleMaxLimitClick = () => {
     console.log('الحد الأقصى تم النقر عليه');
@@ -177,7 +181,7 @@ function Header() {
           }}
         >
           <img
-            src="/images/logo.jpg"
+            src={user?.profilePicture || "/images/logo.jpg"}
             alt="Profile"
             style={{
               width: '60px',
@@ -210,52 +214,33 @@ function Header() {
                 fontFamily: 'Tajawal, sans-serif',
               }}
             >
-              د. محمد عبد الحميد
+              د.{user?.username}
             </Typography>
           </Box>
+          <Box sx={{
+          }}>
+            {isSmallScreen ? (
+              <>
+                <IconButton onClick={() => setShowSearch(!showSearch)}>
+                  <SearchIcon />
+                </IconButton>
+                {showSearch && (
+                  <Box
+                  >
+                    <SearchField />
+                  </Box>
+                )}
+              </>
+            ) : (
+              <Box sx={{ width: '100%' }}>
+                <SearchField />
+              </Box>
+            )}
+          </Box>
         </Box>
-
-        {/* Search Section - Responsive handling */}
-        <Box 
-          sx={{ 
-            display: 'flex', 
-            alignItems: 'center',
-            justifyContent: { xs: 'center', sm: 'flex-start' },
-            width: { xs: '100%', sm: '250px' },
-            order: { xs: 3, sm: 2 },
-            position: 'relative',
-          }}
-        >
-          {isSmallScreen ? (
-            <>
-              <IconButton onClick={() => setShowSearch(!showSearch)}>
-                <SearchIcon />
-              </IconButton>
-              {showSearch && (
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    top: '100%',
-                    right: '0',
-                    zIndex: 10,
-                    width: '100%',
-                    maxWidth: '250px',
-                  }}
-                >
-                  <SearchField />
-                </Box>
-              )}
-            </>
-          ) : (
-            <Box sx={{ width: '100%' }}>
-              <SearchField />
-            </Box>
-          )}
-        </Box>
-
         {/* Action Buttons - Responsive handling */}
-        <Box 
-          sx={{ 
+        <Box
+          sx={{
             order: { xs: 2, sm: 3 },
             display: 'flex',
             justifyContent: { xs: 'center', sm: 'flex-end' },
