@@ -34,25 +34,24 @@ import Domain from "./components/Welcome/Domain";
 
 
 // import all user pages
- import  {PdfPage} from "./pages/PdfPage/PdfPage";
+import  {PdfPage} from "./pages/PdfPage/PdfPage";
 
 // PDF Viewer
-import { PDFViewerPage } from "./pages/PdfPage/PDFViewer"; 
+import  PDFViewerPage  from "./pages/PdfPage/PDFViewer"; 
 
 // Articles
 import ArticlePage from "./pages/Articlespage/Articlepage";
 import Article  from "./pages/Articlespage/Article";
 import UserDashboard from "./components/UserDashboard/UserHome";
-import EvaluationList from "./components/UserDashboard/EducationalContent/EvaluationList";
-import HomeworkProgress from "./components/UserDashboard/EducationalContent/AssignmentReview";
 import UserProfile from "./components/UserDashboard/Interaction page/Socialmedia/Userprofile";
 import VideoUploadForm from "./components/Home/VideoUploadForm";
 import Notifications from "./components/UserDashboard/Interaction page/Socialmedia/Notifications";
 import ProtectedRoute from "./components/Authentication/ProtectedRoute";
 import MainDashboard from "./components/UserDashboard/MainDashboard";
-import ListTests from "./components/UserDashboard/ListTests";
-import SubmitAssignments from "./components/UserDashboard/SubmitAssignments";
-import ChatGPT from "./components/UserDashboard/ChatGPT";
+import ListTests from "./components/UserDashboard/EducationalContent/ListTests";
+import SubmitAssignments from "./components/UserDashboard/EducationalContent/SubmitAssignments";
+import ChatGPT from "./components/UserDashboard/EducationalContent/ChatGPT";
+import UserInteraction from "./components/UserDashboard/ReactionUsers/UserInteraction";
 
 const App = () => {
   return (
@@ -70,14 +69,13 @@ const App = () => {
 
         <Route element={<UserDashboard />}>
           <Route path="/userdashboard" element={<MainDashboard />} />
-          <Route path="/userdashboard/evaluationList" element={<EvaluationList />} />
-          <Route path="/userdashboard/assignment" element={<HomeworkProgress />} />
           <Route path="/userdashboard/userprofile" element={<UserProfile />} />
           <Route path="/userdashboard/VideoUploadForm" element={<VideoUploadForm />} />
           <Route path="/userdashboard/notifications" element={<Notifications />} />
           <Route path="/userdashboard/ListTests" element={<ListTests />} />
           <Route path="/userdashboard/SubmitAssignments" element={<SubmitAssignments />} />
           <Route path="/userdashboard/ChatGPT" element={<ChatGPT />} />
+          <Route path="/userdashboard/UserInteraction" element={<UserInteraction />} />
         </Route>
 
         {/* Main App Routes */}
