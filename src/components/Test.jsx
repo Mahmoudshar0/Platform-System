@@ -15,15 +15,14 @@ function Test() {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ maxWidth: "95vw", overflowX: "hidden", paddingRight: 10 }}>
+    <Box sx={{width: { md: `calc(100% - 240px)` }}}>
       <TempPage />
       <Box
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "start",
+          justifyContent: "center",
           gap: "25px",
-          paddingLeft: 20,
           marginBottom: "20px",
           position: "absolute",
           top: "175px",
@@ -74,8 +73,6 @@ function Test() {
           <DeleteOutlineIcon />
         </Button>
       </Box>
-      {location.pathname === "/test" && <></>}
-      <Outlet />
     </Box>
   );
 }

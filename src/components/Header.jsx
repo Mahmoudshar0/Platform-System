@@ -144,27 +144,32 @@ function Header() {
         direction: 'rtl',
         borderBottom: '1px solid #eaeaea',
         backgroundColor: '#ffffff',
+        // paddingBlock: "10px"
       }}
     >
       <Box
         sx={{
           display: 'flex',
           flexDirection: {
-            xs: 'column',
+            
             sm: 'row',
           },
           alignItems: 'center',
           justifyContent: {
-            xs: 'center',
-            sm: 'space-between',
+            xs: 'end',
+            sm: 'space-around',
           },
           padding: {
-            xs: '10px 15px',
-            sm: '10px 20px',
+            xs: '15px 10px',
+            sm: '15px 10px',
+          },
+          margin:{
+            xs: "0 10px",
+            md: 0
           },
           gap: {
-            xs: '15px',
-            sm: '20px',
+            xs: '10px',
+            sm: '10px',
           },
           position: 'relative',
         }}
@@ -174,10 +179,10 @@ function Header() {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            gap: '15px',
             width: { xs: '100%', sm: 'auto' },
             justifyContent: { xs: 'center', sm: 'flex-start' },
             order: { xs: 1, sm: 1 },
+            gap: '20px',
           }}
         >
           <img
@@ -189,6 +194,7 @@ function Header() {
               borderRadius: '50%',
               objectFit: 'cover',
               border: '1px solid #C7C7C7',
+              marginLeft: '10px',
             }}
           />
           <Box sx={{ textAlign: 'right' }}>
@@ -200,8 +206,6 @@ function Header() {
                 fontFamily: 'Tajawal, sans-serif',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '5px',
-                minWidth: '130px',
               }}
             >
               مرحبًا بك..👋
@@ -212,9 +216,10 @@ function Header() {
                 fontSize: '14px',
                 color: '#818181',
                 fontFamily: 'Tajawal, sans-serif',
+                width: 'max-content',
               }}
             >
-              د.{user?.username}
+              د.{user?.username || 'اسم المستخدم'}
             </Typography>
           </Box>
           <Box sx={{
@@ -286,7 +291,7 @@ function Header() {
               </Menu>
             </>
           ) : (
-            <Box sx={{ display: 'flex', gap: '10px' }}>
+            <Box sx={{ display: 'flex', gap: '30px' }}>
               <NotificationsButton
                 showNotifications={showNotifications}
                 setShowNotifications={setShowNotifications}

@@ -36,19 +36,15 @@ const menuItems = [
     ]
   },
   {
-    text: "صفحة التفاعل", icon: <AssignmentIcon />, path: "/assignments"
-    , subItems: [
-      {
-        text: "التواصل الاجتماعي ", icon: <VideoLibraryIcon />, path: "/educational/videos",
-        subItems: [
-          { text: 'ملف المستخدم', icon: <AccountCircleIcon />, path: '/userdashboard/userprofile' },
-          { text: 'قائمة الأصدقاء', icon: <PeopleAltIcon /> },
-          { text: 'المجموعات', icon: <GroupIcon /> },
-          { text: 'منتديات النقاش', icon: <ForumIcon /> },
-        ]
-      },
+    text: "التواصل الاجتماعي ", icon: <VideoLibraryIcon />, path: "/educational/videos",
+    subItems: [
+      { text: 'ملف المستخدم', icon: <AccountCircleIcon />, path: '/userdashboard/userprofile' },
+      { text: 'قائمة الأصدقاء', icon: <PeopleAltIcon /> },
+      { text: 'المجموعات', icon: <GroupIcon /> },
+      { text: 'منتديات النقاش', icon: <ForumIcon /> },
     ]
   },
+
   { text: "الاشعارات", icon: <QuizIcon />, path: "/test" },
   { text: "التذاكر", icon: <ChatIcon />, path: "/posts" },
   {

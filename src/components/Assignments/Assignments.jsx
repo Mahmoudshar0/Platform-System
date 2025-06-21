@@ -77,8 +77,8 @@ export default function Assignments() {
 
    return (
 
-      <div className="w-full md:[width:calc(100%-220px)] px-[20px] pt-[70px]">
-         <div dir="rtl" className="flex gap-x-8 text-lg ">
+      <div className="w-full sm:[w-100%] lg:[width:calc(100%-220px)] px-[40px] pb-[20px]">
+         <div dir="rtl" className="flex gap-x-8 text-lg">
             <div className={`${selectedTab === "uploaded" ? "text-[#000] font-bold" : "text-[#777]"} cursor-pointer`} onClick={() => handleTabChange("uploaded")}>
                الواجبات المرفوعه
             </div>
@@ -88,7 +88,7 @@ export default function Assignments() {
             </div>
          </div>
 
-         <hr className="my-5 text-gray-200" />
+         <hr className="my-7 text-gray-200" />
 
          <div className="flex justify-between items-center">
             <Options addPage="addAssPage" addWord="اضافه واجب"/>

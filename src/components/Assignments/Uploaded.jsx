@@ -22,9 +22,9 @@ export default function Upload({data}) {
                {data.date}
             </p>
          </div>
-         <div className='flex gap-3 text-xs'>
-            <EditIcon className="text-gray-600 cursor-pointer" />
-            <DeleteIcon className="text-gray-600 cursor-pointer" />
+         <div className='flex gap-2 text-xs'>
+            <EditIcon style={{width:"20px"}} className="text-gray-600 cursor-pointer" />
+            <DeleteIcon style={{width:"20px"}} className="text-gray-600 cursor-pointer" />
          </div>
       </div>
    );

@@ -47,8 +47,8 @@ const MessagesButton = ({ showMessages, setShowMessages, anchorEl, setAnchorEl, 
           <Box
             sx={{
               position: 'absolute',
-              top: '100%',
-              left: '50%',
+              top: '101%',
+              left: '100px',
               transform: 'translateX(-50%)',
               width: '350px',
               backgroundColor: '#fff',

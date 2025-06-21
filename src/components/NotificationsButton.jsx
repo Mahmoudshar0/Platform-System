@@ -4,22 +4,25 @@ import CloseIcon from '@mui/icons-material/Close';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import { ClickAwayListener } from '@mui/material';
 
 const NotificationsButton = ({ showNotifications, setShowNotifications, messages, handleMaxLimitClick }) => {
   return (
-    <Box
-      sx={{
-        width: '35px',
-        height: '35px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+    <ClickAwayListener onClickAway={() => setShowNotifications(false)}>
+      <Box
+        sx={{
+          width: '35px',
+          height: '35px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         border: '1px solid #CCCCCC',
         borderRadius: '50%',
         cursor: 'pointer',
         position: 'relative',
       }}
       onClick={() => setShowNotifications(!showNotifications)}
+      onBlur={() => setShowNotifications(prev => !prev)}
     >
       <NotificationsNoneIcon sx={{ fontSize: '18px', color: '#555555' }} />
 
@@ -27,8 +30,8 @@ const NotificationsButton = ({ showNotifications, setShowNotifications, messages
         <Box
           sx={{
             position: 'absolute',
-            top: '100%',
-            right: 0,
+            top: '101%',
+            left: "0",
             width: {
               xs: 'calc(100vw - 20px)',
               sm: '320px',
@@ -179,6 +182,7 @@ const NotificationsButton = ({ showNotifications, setShowNotifications, messages
         </Box>
       )}
     </Box>
+      </ClickAwayListener>
   );
 };
 

@@ -66,7 +66,7 @@ const App = () => {
           <Route path="/password-reset" element={<ResetPasswordPage />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/domain" element={<Domain />} />
-           <Route path="/live" element={<Live />} />
+          <Route path="/live" element={<Live />} />
 
         </Route>
 
@@ -100,17 +100,12 @@ const App = () => {
           <Route path="/pages" element={<TestPages />} />
           <Route path="/assignments" element={<Assignments />} />
           <Route path="/settings" element={<SettingPage />} />
-           <Route path="/AddLive" element={<AddLive />} />
-
-          {/* <Route path="/live" element={<LiveVideo />} /> */}
-
-
-          {/* User Pages */}
+          <Route path="/AddLive" element={<AddLive />} />
           <Route path="/pdfpage" element={<PdfPage/>} />
           <Route path="/pdf-viewer/:pdfId" element={<PDFViewerPage/>} />
           {/* //--------------------- */}
-           <Route path="/article" element={<ArticlePage/>} /> 
-           <Route path="/article/:articleId" element={<Article />} />
+          <Route path="/article" element={<ArticlePage/>} /> 
+          <Route path="/article/:articleId" element={<Article />} />
         </Route>
       </Routes>
     </Router>

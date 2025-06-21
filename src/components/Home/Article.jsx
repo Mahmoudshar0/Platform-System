@@ -76,7 +76,7 @@ const ArticleCard = () => {
         </Button>
       </Box>
       <Box sx={{ width: '100%', height: '1px', backgroundColor: '#e5e7eb'}} />
-    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(310px, 350px))', justifyContent: 'center', gap: 3, mt: 3 }}>
+    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', justifyContent: 'center', gap: 3, mt: 3 }}>
       {articles.map((article) => (
         <Card sx={{ direction: 'rtl', borderRadius: 2, boxShadow: 2, border: '5px solid #fff' }} key={article.id}>
         <Box>

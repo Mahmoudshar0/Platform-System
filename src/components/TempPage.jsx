@@ -13,16 +13,15 @@ function TempComponent() {
   const [filter, setFilter] = useState("all"); // الحالة الافتراضية لعرض الكل
 
   return (
-    <Box sx={{ width: "100%", padding: "10px 50px" }}>
+    <Box sx={{ width: "100%", paddingInline: "20px"}}>
       {/* الروابط */}
       <Box
         sx={{
-          padding: "10px 30px",
+          padding: "10px 0px",
           display: "flex",
           gap: "30px",
           justifyContent: "flex-end",
           alignItems: "center",
-          marginRight: { xs: "10px", sm: "100px", md: "200px", lg: "255px" },
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -66,11 +65,8 @@ function TempComponent() {
       {/* الخط الفاصل */}
       <hr
         style={{
-          width: "calc(100% - 300px)",
-          maxWidth: "75%",
+          width: "100%",
           opacity: "0.5",
-          marginRight: "280px",
-          marginLeft: "auto",
           borderTop: "1px solid #ccc",
         }}
       />
@@ -84,7 +80,6 @@ function TempComponent() {
           justifyContent: "flex-end",
           flexWrap: "wrap",
           marginTop: "20px",
-          marginRight: { xs: "10px", sm: "80px", md: "200px", lg: "300px" },
         }}
       >
         <TextField

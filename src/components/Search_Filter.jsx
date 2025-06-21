@@ -10,10 +10,11 @@ export default function Search_Filter() {
       },
       display: "flex", alignItems: "center", gap: "8px" }}>
          <TextField
-         placeholder="بحث..."
+         placeholder="بحث"
          variant="outlined"
          sx={{
-            bgcolor: "#F0F0F0",
+            minWidth:"100px",
+            bgcolor: "#FFF",
             borderRadius: "8px",
             width: { xs: `calc(100% - 100px)`, md: "350px" },
             "& .MuiOutlinedInput-root": {
@@ -27,7 +28,7 @@ export default function Search_Filter() {
          InputProps={{
             startAdornment: (
                <InputAdornment position="end">
-               <SearchIcon sx={{ color: "#888", fontSize: "16px" }} />
+               <SearchIcon sx={{ color: "#000", fontSize: "16px" }} />
                </InputAdornment>
             ),
          }}
