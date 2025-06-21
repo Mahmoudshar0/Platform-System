@@ -37,7 +37,7 @@ import Domain from "./components/Welcome/Domain";
  import  {PdfPage} from "./pages/PdfPage/PdfPage";
 
 // PDF Viewer
-import { PDFViewerPage } from "./pages/PdfPage/PDFViewer"; 
+import PDFViewerPage  from "./pages/PdfPage/PDFViewer"; 
 
 // Articles
 import ArticlePage from "./pages/Articlespage/Articlepage";
@@ -53,7 +53,10 @@ import MainDashboard from "./components/UserDashboard/MainDashboard";
 import ListTests from "./components/UserDashboard/ListTests";
 import SubmitAssignments from "./components/UserDashboard/SubmitAssignments";
 import ChatGPT from "./components/UserDashboard/ChatGPT";
-
+import UserInteraction from "./components/UserDashboard/ReactionUsers/UserInteraction";
+import AddFriends from "./components/UserDashboard/ReactionUsers/AddFriends";
+import GroupDetails from "./components/UserDashboard/ReactionUsers/GroupDetails";
+import MessageFriends from "./components/UserDashboard/ReactionUsers/Message Friends";
 const App = () => {
   return (
     <Router>
@@ -78,6 +81,10 @@ const App = () => {
           <Route path="/userdashboard/ListTests" element={<ListTests />} />
           <Route path="/userdashboard/SubmitAssignments" element={<SubmitAssignments />} />
           <Route path="/userdashboard/ChatGPT" element={<ChatGPT />} />
+          <Route path="/userdashboard/assignments" element={<UserInteraction />} />
+          <Route path="/userdashboard/assignments/AddFriends" element={<AddFriends />} />
+          <Route path="/userdashboard/assignments/MessageFriends" element={<MessageFriends />} />
+              <Route path="/userdashboard/assignments/groups/:id" element={<GroupDetails />} />
         </Route>
 
         {/* Main App Routes */}
