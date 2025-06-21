@@ -52,6 +52,8 @@ import ListTests from "./components/UserDashboard/EducationalContent/ListTests";
 import SubmitAssignments from "./components/UserDashboard/EducationalContent/SubmitAssignments";
 import ChatGPT from "./components/UserDashboard/EducationalContent/ChatGPT";
 import UserInteraction from "./components/UserDashboard/ReactionUsers/UserInteraction";
+import SocialMediaApp from "./pages/Socialpage/SocialMediaApp";
+import Dashboarduser from "./pages/Dashboarduser/Dashboarduser";
 
 const App = () => {
   return (
@@ -107,6 +109,8 @@ const App = () => {
           {/* //--------------------- */}
            <Route path="/article" element={<ArticlePage/>} /> 
            <Route path="/article/:articleId" element={<Article />} />
+          <Route path="/dashboarduser" element={<Dashboarduser />} />
+          <Route path="/socialmedia" element={<SocialMediaApp />} />
         </Route>
       </Routes>
     </Router>
