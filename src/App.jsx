@@ -28,7 +28,6 @@ import AllFilesPage from "./ContentFile/AllFilesPage";
 import TestPages from "./ContentFile/TestPages";
 import MessagesPage from "./components/MessagePage";
 import SettingPage from "./Settings/SettingPage";
-// import LiveVideo from "./components/Home/LiveVideo";
 import Welcome from "./components/Welcome/Welcome";
 import Domain from "./components/Welcome/Domain";
 
@@ -52,6 +51,8 @@ import ListTests from "./components/UserDashboard/EducationalContent/ListTests";
 import SubmitAssignments from "./components/UserDashboard/EducationalContent/SubmitAssignments";
 import ChatGPT from "./components/UserDashboard/EducationalContent/ChatGPT";
 import UserInteraction from "./components/UserDashboard/ReactionUsers/UserInteraction";
+import AddLive from "./components/Home/Live/AddLive";
+import Live from "./components/Home/Live/live";
 
 const App = () => {
   return (
@@ -65,6 +66,8 @@ const App = () => {
           <Route path="/password-reset" element={<ResetPasswordPage />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/domain" element={<Domain />} />
+           <Route path="/live" element={<Live />} />
+
         </Route>
 
         <Route element={<UserDashboard />}>
@@ -97,6 +100,7 @@ const App = () => {
           <Route path="/pages" element={<TestPages />} />
           <Route path="/assignments" element={<Assignments />} />
           <Route path="/settings" element={<SettingPage />} />
+           <Route path="/AddLive" element={<AddLive />} />
 
           {/* <Route path="/live" element={<LiveVideo />} /> */}
 

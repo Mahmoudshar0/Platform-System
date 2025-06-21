@@ -1,5 +1,4 @@
-import "./LiveVideo.css"
-export default function LiveVideo(){
+ export default function LiveVideo(){
    return (
       <div lang="ar" dir="rtl" class="flex flex-col lg:flex-row">
          <div class="w-full lg:flex-1 p-4 lg:p-8">

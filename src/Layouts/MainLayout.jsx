@@ -17,7 +17,7 @@ const menuItems = [
   { text: "إدارة الواجبات", icon: <AssignmentIcon />, path: "/assignments" },
   { text: "إدارة الاختبارات", icon: <QuizIcon />, path: "/test" },
   { text: "التفاعل مع الطلاب", icon: <PeopleIcon />, path: "/posts" },
-  { text: "بث مباشر", icon: <img src={live} alt="بث مباشر" style={{ width: 24, height: 24 }} />, path: "/live" },
+  { text: "بث مباشر", icon: <img src={live} alt="بث مباشر" style={{ width: 24, height: 24 }} />, path: "/AddLive" },
   { text: "الإعدادات", icon: <SettingsIcon />, path: "/settings" },
 ];
 const MainLayout = () => {
