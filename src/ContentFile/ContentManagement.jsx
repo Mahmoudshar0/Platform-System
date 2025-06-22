@@ -173,10 +173,10 @@ function ContentManagement() {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden' }}>
+    <Box sx={{ width:{md:"calc(100% - 240px)"}, display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden' }}>
       <AppBar position="static" color="transparent" elevation={0}>
-        <Toolbar sx={{ justifyContent: 'space-between', flexWrap: { xs: 'wrap', md: 'nowrap' } }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Toolbar sx={{ justifyContent: 'end', flexWrap: { xs: 'wrap', md: 'nowrap' }, gap: 4 }}>
+          <Box sx={{ direction:"rtl", display: 'flex', alignItems: 'center', gap: 1 }}>
             <Typography variant="subtitle2" sx={{ fontSize: { xs: '0.8rem', md: 'inherit' } }}>
               مرحباً بك
             </Typography>
@@ -193,10 +193,8 @@ function ContentManagement() {
           flex: 1,
           px: { xs: 2, sm: 3 },
           pt: { xs: 2, sm: 3 },
-          mr: { xs: 0, md: '250px' },
           overflowY: 'hidden',
           boxSizing: 'border-box',
-          maxWidth: { xs: '100%', md: 'calc(100% - 250px)' },
           height: { xs: 'calc(100vh - 56px)', md: 'calc(100vh - 64px)' },
         }}
       >

@@ -144,14 +144,12 @@ function Header() {
         direction: 'rtl',
         borderBottom: '1px solid #eaeaea',
         backgroundColor: '#ffffff',
-        // paddingBlock: "10px"
       }}
     >
       <Box
         sx={{
           display: 'flex',
           flexDirection: {
-            
             sm: 'row',
           },
           alignItems: 'center',
@@ -174,7 +172,7 @@ function Header() {
           position: 'relative',
         }}
       >
-        {/* Profile Section */}
+
         <Box
           sx={{
             display: 'flex',
@@ -195,6 +193,7 @@ function Header() {
               objectFit: 'cover',
               border: '1px solid #C7C7C7',
               marginLeft: '10px',
+              marginRight: '10px',
             }}
           />
           <Box sx={{ textAlign: 'right' }}>

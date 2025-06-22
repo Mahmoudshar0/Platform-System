@@ -31,10 +31,7 @@ function CompletedTest() {
         <Box
           key={index}
           sx={{
-            width: { xs: "95%", sm: "85%", md: "75%" },
             display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            alignItems: { xs: "center", sm: "flex-start" },
             justifyContent: "space-between",
             gap: "10px",
             padding: "15px",
@@ -63,7 +60,7 @@ function CompletedTest() {
             >
               عرض النتيجة
             </Link>
-            <span style={{ color: "#C7C7C7", fontWeight: "bold", opacity: "0.6" }}>|</span>
+            <span style={{ color: "#C7C7C7", fontWeight: "bold", opacity: "0.6", marginInline:{xs:"10px", md:"20px"}}}>|</span>
             <span style={{ color: "#818181", fontWeight: "bold" }}>
               تم التسليم <span style={{ color: "#818181", fontWeight: "normal" }}>10:30 صباحًا</span>
             </span>
@@ -118,7 +115,7 @@ function CompletedTest() {
               <Typography variant="h6" sx={{ margin: 0, fontSize: "16px", fontWeight: "bold" }}>
                 رانية بخش
               </Typography>
-              <Typography variant="body2" sx={{ color: "#667085", fontWeight: "bolder" }}>
+              <Typography variant="body2" sx={{ color: "#667085", fontWeight: "bolder", textAlign:"end" }}>
                 طالب
               </Typography>
             </Box>

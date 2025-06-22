@@ -79,12 +79,12 @@ export default function Assignments() {
 
       <div className="w-full sm:[w-100%] lg:[width:calc(100%-220px)] px-[40px] pb-[20px]">
          <div dir="rtl" className="flex gap-x-8 text-lg">
-            <div className={`${selectedTab === "uploaded" ? "text-[#000] font-bold" : "text-[#777]"} cursor-pointer`} onClick={() => handleTabChange("uploaded")}>
+            <div className={`${selectedTab === "uploaded" ? "text-[#000] font-bold" : "text-[#777]"} cursor-pointer text-[16px]`} onClick={() => handleTabChange("uploaded")}>
                الواجبات المرفوعه
             </div>
-            <div className={`${selectedTab === "submitted" ? "text-[#000] font-bold" : "text-[#777]"} cursor-pointer`} onClick={() => handleTabChange("submitted")}>
+            <div className={`${selectedTab === "submitted" ? "text-[#000] font-bold" : "text-[#777]"} cursor-pointer text-[16px]`} onClick={() => handleTabChange("submitted")}>
                الواجبات المستلمه
-            <span className="mx-2 bg-gray-300 p-1 rounded-full">12</span>
+            <span className="mx-4 bg-gray-300 p-1 rounded-full">12</span>
             </div>
          </div>
 

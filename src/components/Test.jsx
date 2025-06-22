@@ -25,7 +25,8 @@ function Test() {
           gap: "25px",
           marginBottom: "20px",
           position: "absolute",
-          top: "175px",
+          top: "250px",
+          left: {xs:"23%", md:"15%"},
         }}
       >
         <Button

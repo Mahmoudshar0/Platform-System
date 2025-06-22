@@ -15,16 +15,16 @@ function UploadedTest() {
         <Box
           key={index}
           sx={{
-            width: { xs: "95%", sm: "90%", md: "90%" },
+            // width: { xs: "95%", sm: "90%", md: "90%" },
             maxWidth: "1200px",
             display: "flex",
             flexDirection: "column",
-            alignItems: "start",
+            alignItems: "center",
             justifyContent: "center",
             padding: "15px",
             borderRadius: "8px",
             margin: "20px auto",
-            marginRight: { xs: "auto", sm: "50px", md: "250px" },
+            // marginRight: { xs: "auto", sm: "50px", md: "250px" },
             boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
             border: "1px solid #BCBCBC",
             cursor: "pointer",
@@ -50,26 +50,15 @@ function UploadedTest() {
                     color: "#818181",
                     transform: openTest === index ? "rotate(-90deg)" : "rotate(0deg)",
                     transition: "transform 0.3s ease",
+                    marginRight: "5px",
                   }}
                 />
                 {`الاختبار ${num}`}
               </Link>
             </Box>
-            <Box sx={{ display: "flex", alignItems: "center", gap: "10px", marginLeft: "auto" }}>
-              <img
-                src="/images/logo.jpg"
-                alt="Profile"
-                style={{
-                  width: "50px",
-                  height: "50px",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  border: "1px solid #C7C7C7",
-                  marginRight: "-100px",
-                }}
-              />
-              <Box sx={{ position: "relative", right: "25px" }}>
-                <Typography variant="h6" sx={{ margin: 0, fontSize: "16px", fontWeight: "bold" }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <Box sx={{ position: "relative" }}>
+                <Typography variant="h6" sx={{ margin: 0, fontSize: "16px", fontWeight: "bold", textAlign:"end" }}>
                   رانية بخش
                 </Typography>
                 <Typography
@@ -79,22 +68,32 @@ function UploadedTest() {
                     fontWeight: "bolder",
                     display: "block",
                     position: "relative",
-                    right: "30px",
                   }}
                 >
                   د.أساسيات البرمجة
                 </Typography>
               </Box>
+              <img
+                src="/images/logo.jpg"
+                alt="Profile"
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  border: "1px solid #C7C7C7",
+                }}
+              />
             </Box>
           </Box>
 
           {openTest === index && (
             <Box
-              sx={{
-                marginTop: "15px",
-                padding: "10px",
-                borderRadius: "8px",
-                width: "100%",
+            sx={{
+              marginTop: "15px",
+              padding: "10px",
+              borderRadius: "8px",
+              width: "100%",
                 transition: "all 0.3s ease",
                 textAlign: "right",
                 marginLeft: "-20px",

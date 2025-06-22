@@ -10,14 +10,14 @@ import UploadedTest from "./UploadedTest";
 import CompletedTest from "./CompletedTest";
 
 function TempComponent() {
-  const [filter, setFilter] = useState("all"); // الحالة الافتراضية لعرض الكل
+  const [filter, setFilter] = useState("uploaded"); // الحالة الافتراضية لعرض الكل
 
   return (
     <Box sx={{ width: "100%", paddingInline: "20px"}}>
       {/* الروابط */}
       <Box
         sx={{
-          padding: "10px 0px",
+          padding: "40px 0px 20px",
           display: "flex",
           gap: "30px",
           justifyContent: "flex-end",
@@ -77,16 +77,18 @@ function TempComponent() {
           display: "flex",
           alignItems: "center",
           gap: "15px",
-          justifyContent: "flex-end",
+          justifyContent: "center",
           flexWrap: "wrap",
           marginTop: "20px",
+          marginBottom: "80px",
         }}
       >
         <TextField
-          placeholder="بحث..."
+        dir="rtl"
+          placeholder="بحث"
           variant="outlined"
           sx={{
-            bgcolor: "#F0F0F0",
+            bgcolor: "#fff",
             borderRadius: "8px",
             width: { xs: "100%", sm: "300px", md: "400px" },
             "& .MuiOutlinedInput-root": {
@@ -99,7 +101,7 @@ function TempComponent() {
           }}
           InputProps={{
             startAdornment: (
-              <InputAdornment position="end">
+              <InputAdornment position="start">
                 <SearchIcon sx={{ color: "#888", fontSize: "16px" }} />
               </InputAdornment>
             ),
